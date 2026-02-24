@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://j1ntb5eob0qy"]
+
+[ext_resource type="Script" uid="uid://ck34knquhucbv" path="res://engine/gamemaster/effects_controller/fx_endless/fx_endless.gd" id="1_6va07"]
+
+[sub_resource type="Curve" id="Curve_x6sv1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.104905, 1), 0.0, 0.0, 0, 0, Vector2(0.915531, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8gyba"]
+curve = SubResource("Curve_x6sv1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_clwax"]
+emission_shape = 3
+emission_box_extents = Vector3(40, 0, 40)
+direction = Vector3(0, -1, 0)
+spread = 2.5
+initial_velocity_min = 45.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+alpha_curve = SubResource("CurveTexture_8gyba")
+
+[sub_resource type="Gradient" id="Gradient_owens"]
+colors = PackedColorArray(0.635799, 0.635799, 0.635799, 0, 1, 1, 1, 0.505882)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qa6pj"]
+frequency = 0.0168
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tj32s"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_qa6pj")
+color_ramp = SubResource("Gradient_owens")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2kmv"]
+transparency = 4
+blend_mode = 1
+cull_mode = 2
+no_depth_test = true
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(0.07058824, 0.41960785, 0.5294118, 1)
+albedo_texture = SubResource("NoiseTexture2D_tj32s")
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_2kcc0"]
+material = SubResource("StandardMaterial3D_f2kmv")
+radius = 0.03
+height = 0.25
+radial_segments = 4
+rings = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2kmv"]
+emission_shape = 3
+emission_box_extents = Vector3(40, 0, 40)
+direction = Vector3(0, -1, 0)
+spread = 2.5
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+alpha_curve = SubResource("CurveTexture_8gyba")
+
+[sub_resource type="SphereMesh" id="SphereMesh_f2kmv"]
+material = SubResource("StandardMaterial3D_f2kmv")
+radius = 0.02
+height = 0.3
+radial_segments = 4
+rings = 1
+
+[node name="FxParticulateStorm" type="Node3D" unique_id=1582592607]
+script = ExtResource("1_6va07")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1122762660]
+transform = Transform3D(0.9809145, 0.1940469, 0.01235461, -0.19443978, 0.9789323, 0.062326822, 0, -0.063539505, 0.9979793, 3.121521, 40, -3.7392426)
+cast_shadow = 0
+amount = 2000
+lifetime = 2.0
+preprocess = 12.0
+randomness = 0.1
+visibility_aabb = AABB(-50, -100, -50, 100, 100, 100)
+process_material = SubResource("ParticleProcessMaterial_clwax")
+draw_pass_1 = SubResource("SphereMesh_2kcc0")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=121457515]
+transform = Transform3D(0.9809145, 0.1940469, 0.01235461, -0.19443978, 0.9789323, 0.062326822, 0, -0.063539505, 0.9979793, 3.121521, 40, -3.7392426)
+cast_shadow = 0
+amount = 6000
+lifetime = 2.0
+preprocess = 12.0
+randomness = 0.1
+visibility_aabb = AABB(-50, -100, -50, 100, 100, 100)
+process_material = SubResource("ParticleProcessMaterial_f2kmv")
+draw_pass_1 = SubResource("SphereMesh_f2kmv")

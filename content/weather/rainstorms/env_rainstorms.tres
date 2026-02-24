@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="PackedScene" path="res://content/weather/rainstorms/fx_rainstorm.tscn" id="1_racwy"]
+[ext_resource type="Script" path="res://content/weather/rainstorms/env_rainstorms.gd" id="2_racwy"]
+
+[resource]
+script = ExtResource("2_racwy")
+fx_environment = ExtResource("1_racwy")
+affected_factions = 0

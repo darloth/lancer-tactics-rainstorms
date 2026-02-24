@@ -1,0 +1,16 @@
+{
+    "name": "Rainstorms weather effect",
+    "author": "Darloth",
+    "version": "1.0",
+    "resource_groups": {
+        "res://engine/resource_groups/resgrp_weathers.tres": [
+            "res://content/weather/rainstorms/env_rainstorms.tres",
+        ]
+    },
+    "translate": {
+        "en": {
+            "battle.env_rainstorms.name": "Rainstorms",
+            "battle.env_rainstorms.effect": "Heavy rain may obscure long range visuals, but has no appreciable effect on combat grade sensors within typical engagement ranges.",
+        }
+    }
+}
