@@ -11,7 +11,7 @@ curve = SubResource("Curve_x6sv1")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_clwax"]
 emission_shape = 3
-emission_box_extents = Vector3(40, 0, 40)
+emission_box_extents = Vector3(50, 0, 50)
 direction = Vector3(0, -1, 0)
 spread = 2.5
 initial_velocity_min = 45.0
@@ -61,7 +61,7 @@ rings = 2
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2kmv"]
 emission_shape = 3
-emission_box_extents = Vector3(40, 0, 40)
+emission_box_extents = Vector3(50, 0, 50)
 direction = Vector3(0, -1, 0)
 spread = 2.5
 initial_velocity_min = 30.0
@@ -87,17 +87,17 @@ amount = 2000
 lifetime = 2.0
 preprocess = 12.0
 randomness = 0.1
-visibility_aabb = AABB(-50, -100, -50, 100, 100, 100)
+visibility_aabb = AABB(-60, -100, -60, 120, 100, 120)
 process_material = SubResource("ParticleProcessMaterial_clwax")
 draw_pass_1 = SubResource("SphereMesh_2kcc0")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=121457515]
 transform = Transform3D(0.9809145, 0.1940469, 0.01235461, -0.19443978, 0.9789323, 0.062326822, 0, -0.063539505, 0.9979793, 3.121521, 40, -3.7392426)
 cast_shadow = 0
-amount = 6000
+amount = 7500
 lifetime = 2.0
 preprocess = 12.0
 randomness = 0.1
-visibility_aabb = AABB(-50, -100, -50, 100, 100, 100)
+visibility_aabb = AABB(-60, -100, -60, 120, 100, 120)
 process_material = SubResource("ParticleProcessMaterial_f2kmv")
 draw_pass_1 = SubResource("SphereMesh_f2kmv")
