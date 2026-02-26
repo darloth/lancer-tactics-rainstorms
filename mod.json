@@ -1,7 +1,7 @@
 {
     "name": "Rainstorms weather effect",
     "author": "Darloth",
-    "version": "1.0",
+    "version": "2.0",
     "resource_groups": {
         "res://engine/resource_groups/resgrp_weathers.tres": [
             "res://content/weather/rainstorms/env_rainstorms.tres",
